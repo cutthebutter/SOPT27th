@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ProfileGridActivity"></activity>
-        <activity android:name=".DetailProfileActivity" />
+        <activity android:name=".DetailActivity"></activity>
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".ProfileGridActivity" />
+        <activity android:name=".DetailProfileActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
