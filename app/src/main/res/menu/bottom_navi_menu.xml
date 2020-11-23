@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_bottom_first"
+        android:icon="@drawable/menu_bottom_first_icon"
+        android:checked="false"
+        android:title="first"/>
+
+    <item
+        android:id="@+id/menu_bottom_second"
+        android:icon="@drawable/menu_bottom_second_icon"
+        android:checked="false"
+        android:title="second"/>
+
+    <item
+        android:id="@+id/menu_bottom_third"
+        android:icon="@drawable/menu_bottom_third_icon"
+        android:checked="false"
+        android:title="third"/>
+</menu>
