@@ -7,7 +7,7 @@
 
 ## 👽시연 GIF
 - 회원가입 페이지
- <img width="200"src="https://user-images.githubusercontent.com/42573282/99975076-1bacc400-2de5-11eb-950f-62ee3bd3e646.gif">
+ <img width="200" src="https://user-images.githubusercontent.com/42573282/99975076-1bacc400-2de5-11eb-950f-62ee3bd3e646.gif">
  
  - 리사이클러뷰
  
@@ -15,7 +15,7 @@
  
  - 바텀 내비게이션 바, 탭바
  
- <img width="200"src="https://user-images.githubusercontent.com/42573282/99974987-ff108c00-2de4-11eb-9215-9cbb54445f13.gif">
+ <img width="200" src="https://user-images.githubusercontent.com/42573282/99974987-ff108c00-2de4-11eb-9215-9cbb54445f13.gif">
 
  
  youtu.be/YpUQ5KQ72Fg
