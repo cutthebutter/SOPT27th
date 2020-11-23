@@ -3,10 +3,18 @@
 # SOPT27th
 
 드디어 과제 1,2를 다함ㅜㅜ(2020.11.19)
+3주차 과제도 다함ㅜㅜㅜ(2020.11.23)
+
+## 👽시연 GIF
+<div>
+ <img width="200" src="https://user-images.githubusercontent.com/42573282/99974257-05eacf00-2de4-11eb-9281-e0b7a01ed3c2.gif">
+ <img width="200"src="https://user-images.githubusercontent.com/42573282/99974987-ff108c00-2de4-11eb-9215-9cbb54445f13.gif">
+ <img width="200"src="https://user-images.githubusercontent.com/42573282/99975076-1bacc400-2de5-11eb-950f-62ee3bd3e646.gif">
+ 
+ youtu.be/YpUQ5KQ72Fg
 
 ## 1주차 & 2주차
 
-youtu.be/YpUQ5KQ72Fg
 
 ### 1주차 필수과제 : SignUpActivity 만들기
 - 회원가입 화면인 SignUpActicity 만들기
