@@ -2,8 +2,8 @@
 
 # SOPT27th
 
-드디어 과제 1,2를 다함ㅜㅜ(2020.11.19)
-3주차 과제도 다함ㅜㅜㅜ(2020.11.23)
+- 드디어 과제 1,2를 다함ㅜㅜ(2020.11.19)
+- 3주차 과제도 다함ㅜㅜㅜ(2020.11.23)
 
 ## 👽시연 GIF
 - 회원가입 페이지
@@ -26,7 +26,7 @@
 ### 1주차 필수과제 : SignUpActivity 만들기
 - 회원가입 화면인 SignUpActicity 만들기
 - 로그인 화면에서 회원가입을 누르면 이동
->MainAcitvity.kt
+> MainAcitvity.kt
 ```kotlin
 val main_mainToSign = Intent(this, SignUpActivity::class.java)
 
@@ -66,9 +66,11 @@ val main_mainToSign = Intent(this, SignUpActivity::class.java)
 ```
 <EditText
         android:inputType="textPassword" />
-```
+        ```
+
 - 모든 EditTextView는 미리보기가 있어야 함
 > activity_sign_up.xml
+
 ```
 <EditText
         android:hint="@string/pw"
@@ -77,7 +79,7 @@ val main_mainToSign = Intent(this, SignUpActivity::class.java)
 
 ### 1주차 성장과제 1 : 화면이동 
 - 회원 가입에 성공한다면 이전 로그인 화면으로 돌아옴
->SignUpActivity.kt
+> SignUpActivity.kt
 ```kotlin
    //mainActivity로 돌아가는 인텐트
         val sign_signToMain = Intent(this, MainActivity::class.java)
@@ -89,13 +91,13 @@ val main_mainToSign = Intent(this, SignUpActivity::class.java)
                 }     
  ```
 - 이 때, 아이디와 비밀번호가 입력되어 있어야 함
->SignUpActivity
+> SignUpActivity
 ```kotlin
  signDoneBtn.setOnClickListener {
                 sign_signToMain.putExtra("id",itemEditId.text.toString())
                 sign_signToMain.putExtra("pw", itemEditPW.text.toString()) }
 ```
->MainActivity.kt
+> MainActivity.kt
 ```kotlin
      if(idPwShared.getString("id","")!="" && idPwShared.getString("pw","")!=""){
             Toast.makeText(this, "자동로그인이 되었습니다.", Toast.LENGTH_SHORT).show()
@@ -107,7 +109,7 @@ val main_mainToSign = Intent(this, SignUpActivity::class.java)
 - 로그인 버튼을 누르면 HomeActivity로 이동 
 - 로그인에 성공하는 순간 id와 password를 기억해서 다음 로그인 때 자동으로 로그인 됨
 - 자동로그인이 될 경우 자동로그인이 되었다는 메세지를 출력함
->MainActivity.kt
+> MainActivity.kt
 ```kotlin
     //logiBtn을 누를 때 아이디와 PW의 데이터를 쉐어드 프리퍼런스에 저장함
         loginBtn.setOnClickListener {
@@ -156,7 +158,7 @@ data class ProfileData(
 )
 ```
 
->ProfileActivity
+> ProfileActivity
 ```kotlin
         ProfileAdapter = ProfileAdapter(this)
 
@@ -216,7 +218,7 @@ data class ProfileData(
     }
 }
 ```
->DetailActivity
+> DetailActivity
 ```kotlin
        detProfileTitle.text=intent.getStringExtra("title")
         detProfileSubtitle.text=intent.getStringExtra("subtitle")
@@ -224,7 +226,7 @@ data class ProfileData(
         detProfileDate.text=intent.getStringExtra("date")
         
  ```
->ProfileAdapter
+> ProfileAdapter
 ```kotlin
    override fun onItemMoved(from: Int, to: Int) {
         if (from == to) {
@@ -243,3 +245,141 @@ data class ProfileData(
 
 }
 ```
+### 3주차 과제
+ > bottom_Fragment1
+ ```kotlin
+ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewpagerAdapter= TabPagerAdapter(childFragmentManager)
+
+        val homeTabViewPager = view.findViewById<ViewPager>(R.id.homeTabViewPager)
+
+        homeTabViewPager.adapter = viewpagerAdapter
+
+        val homeTab = view.findViewById<TabLayout>(R.id.homeTab)
+
+        homeTab.setupWithViewPager(homeTabViewPager)
+        homeTab.apply{
+            getTabAt(0)?.text = "Info"
+            getTabAt(1)?.text ="Other"
+        }
+
+        super.onViewCreated(view, savedInstanceState)
+
+
+    }
+```
+> bottom_Fragment2
+```kotlin
+ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        profileAdapter = ProfileAdapter(view.context) //this = RecyclerViewActivity
+
+        val profileRcv = view?.findViewById<RecyclerView>(R.id.profileRcv)
+        val changeSwitch = view?.findViewById<Switch>(R.id.changeSwitch)
+
+
+
+        profileAdapter.itemClick = object : ProfileAdapter.ItemClick {
+            override fun onClick(view: View, position: Int) {
+
+                val item = profileAdapter.data[position]
+                val intent = Intent(view.context, DetailActivity::class.java)
+
+                intent.putExtra("title", item.title)
+                intent.putExtra("subtitle", item.subTitle)
+                intent.putExtra("memo", item.memo)
+                intent.putExtra("date", item.date)
+
+                startActivity(intent)
+            }
+        }
+
+        val itemTouchHelperCallback = ItemTouchHelperCallback(profileAdapter)
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(profileRcv)
+
+        profileAdapter.setItemViewType(0);
+        profileRcv.adapter = profileAdapter
+        profileRcv.layoutManager = LinearLayoutManager(view.context)
+
+        changeSwitch.setOnCheckedChangeListener { CompoundButton, onSwitch ->
+            //  스위치가 켜지면
+            if (onSwitch) {
+                profileAdapter.setItemViewType(1)
+                profileRcv.adapter = profileAdapter
+                profileRcv.layoutManager = GridLayoutManager(view.context, 2)
+            }
+            //  스위치가 꺼지면
+            else {
+                profileAdapter.setItemViewType(0);
+                profileRcv.adapter = profileAdapter
+                profileRcv.layoutManager = LinearLayoutManager(view.context)
+            }
+        }
+
+        profileAdapter.data = mutableListOf(
+            ProfileData("이름", "이세민", "전주 이씨 19대손이다", "2020.11.19"),
+            ProfileData("나이", "22", "만으로는 20살이다. 영원히 20살 하고 싶다", "2020.11.20"),
+            ProfileData("파트", "안드로이드", "개발에 집중하고자 안드로이드로 들어왔다.", "2020.11.21"),
+            ProfileData("좋아하는 색깔", "노란색", "노란 옷이 얼굴에 잘 받아 좋아한다", "2020.11.22"),
+            ProfileData("좋아하는 음식", "마라탕", "마라탕...마라탕이 최고다", "2020.11.23"),
+            ProfileData("Sopt", "27기", "이런 좋은 동아리 좀더 어릴 때 들어올걸 그랬다", "2020.11.24")
+        )
+        profileAdapter.notifyDataSetChanged()
+
+
+    }
+    ```
+ > HomeActivity
+ 
+    ```kotlin
+     viewpagerAdapter = ViewPagerAdapter(supportFragmentManager)
+        viewpagerAdapter.fragments = listOf(
+            fragment1,
+            fragment2,
+            fragment3
+        )
+
+        home_bottom_viewPager.adapter =viewpagerAdapter
+
+        home_bottom_viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {}
+
+            override fun onPageSelected(position: Int) {
+                home_bottom_navi.menu.getItem(position).isChecked=true
+            }
+        })
+
+        home_bottom_navi.setOnNavigationItemSelectedListener {
+            var index by Delegates.notNull<Int>()
+            when(it.itemId){
+                R.id.menu_bottom_first -> index = 0
+                R.id.menu_bottom_second -> index =1
+                R.id.menu_bottom_third -> index =2
+
+            }
+            home_bottom_viewPager.currentItem = index
+            true
+        }
+```
+> TabPagerAdaper
+```kotlin
+class TabPagerAdapter (fm : FragmentManager) :
+    FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
+
+    override fun getItem(position: Int): Fragment = when(position){
+        0 -> tab_Fragment1()
+        1 -> tab_Fragment2()
+        else -> throw IllegalStateException("Unexpcted position $position")
+    }
+    override fun getCount(): Int = 2
+}
+ ```
+ 
+ > PagerAdapter
