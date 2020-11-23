@@ -1,9 +1,10 @@
-package com.cutthebutter.sopthw1
+package com.cutthebutter.sopthw1.Recycler
 
 import android.content.Intent
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.cutthebutter.sopthw1.R
 
 class ProfileViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
     private val title: TextView = itemView.findViewById(R.id.profileTitle);

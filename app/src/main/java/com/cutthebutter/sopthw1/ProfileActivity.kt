@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Switch
-import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.cutthebutter.sopthw1.ItemTouch.ItemTouchHelperCallback
+import com.cutthebutter.sopthw1.Recycler.DetailActivity
+import com.cutthebutter.sopthw1.Recycler.ProfileAdapter
+import com.cutthebutter.sopthw1.Recycler.ProfileData
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var ProfileAdapter: ProfileAdapter

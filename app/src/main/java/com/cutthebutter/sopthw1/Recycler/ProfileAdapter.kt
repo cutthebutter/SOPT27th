@@ -1,10 +1,12 @@
-package com.cutthebutter.sopthw1
+package com.cutthebutter.sopthw1.Recycler
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.cutthebutter.sopthw1.ItemTouch.ItemTouchHelperListener
+import com.cutthebutter.sopthw1.R
 
 class ProfileAdapter (private val context : Context) : RecyclerView.Adapter<ProfileViewHolder>(),
         ItemTouchHelperListener {

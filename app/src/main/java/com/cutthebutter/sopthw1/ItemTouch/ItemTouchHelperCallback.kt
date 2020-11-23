@@ -1,4 +1,4 @@
-package com.cutthebutter.sopthw1
+package com.cutthebutter.sopthw1.ItemTouch
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView

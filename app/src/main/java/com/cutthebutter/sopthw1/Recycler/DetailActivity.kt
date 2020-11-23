@@ -1,8 +1,9 @@
-package com.cutthebutter.sopthw1
+package com.cutthebutter.sopthw1.Recycler
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.cutthebutter.sopthw1.R
 
 class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
