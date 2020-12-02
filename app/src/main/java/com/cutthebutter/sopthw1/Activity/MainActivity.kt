@@ -1,15 +1,31 @@
-package com.cutthebutter.sopthw1
+package com.cutthebutter.sopthw1.Activity
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.cutthebutter.sopthw1.Data.RequestLoginData
+import com.cutthebutter.sopthw1.Data.ResponseLoginData
+import com.cutthebutter.sopthw1.R
+import com.cutthebutter.sopthw1.SoptServiceImpl
+import okhttp3.ResponseBody
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+
+    private fun showError(error:ResponseBody?){
+        val e = error?:return
+        val ob=JSONObject(e.string())
+        Toast.makeText(this,ob.getString("message"),Toast.LENGTH_SHORT).show()
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val signUpToLoginRequest = 1
 
@@ -27,11 +43,7 @@ class MainActivity : AppCompatActivity() {
         val main_mainToSign = Intent(this, SignUpActivity::class.java)
         val main_mainToHome = Intent(this, HomeActivity::class.java)
 
-        //@sharedPregerence를 사용하기 위함
-        //@ val 쉐프이름 = getSharedPreferences("저장소명", MODE_PRIVATE)
-       //@ 쉐프 내부 데이터  CRUD를 위해 에디터를 저장해 줌
-        //@ val 쉐프에디터이름 = 쉐프이름.edit()
-        //원래 돌아가지 않았는데 Context를 넣으니까 main으로 돌아온다
+
         val idPwShared = getSharedPreferences("idPw", Context.MODE_PRIVATE)
         val idPwEditor = idPwShared.edit()
 
@@ -67,7 +79,32 @@ class MainActivity : AppCompatActivity() {
             else{
                 Toast.makeText(this, "아이디와 비밀번호를 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
+            val email = editLoginID.text.toString()
+            val password = editLoginPW.text.toString()
+
+
+
+            val call : Call<ResponseLoginData> = SoptServiceImpl.service.postLogin(
+                RequestLoginData(email = email, password = password )
+            )
+
+            call.enqueue(object : Callback<ResponseLoginData> {
+                override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
+                    //통신 실패 로직
+                }
+
+                override fun onResponse(call: Call<ResponseLoginData>, response: Response<ResponseLoginData>) {
+                    response.takeIf { it.isSuccessful }
+                        ?.body()
+                        ?.let{
+                                it ->
+                            //do somting
+                        } ?: showError(response.errorBody())
+                }
+            })
         }
+
+
 
     }
 
@@ -95,3 +132,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+

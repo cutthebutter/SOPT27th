@@ -1,4 +1,4 @@
-package com.cutthebutter.sopthw1
+package com.cutthebutter.sopthw1.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,27 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.cutthebutter.sopthw1.Data.RequestLoginData
+import com.cutthebutter.sopthw1.Data.RequestSignupData
+import com.cutthebutter.sopthw1.Data.ResponseLoginData
+import com.cutthebutter.sopthw1.Data.ResponseSignupData
+import com.cutthebutter.sopthw1.R
+import com.cutthebutter.sopthw1.SoptServiceImpl
+import okhttp3.ResponseBody
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignUpActivity : AppCompatActivity() {
+
+    private fun showError(error: ResponseBody?){
+        val e = error?:return
+        val ob= JSONObject(e.string())
+        Toast.makeText(this,ob.getString("message"),Toast.LENGTH_SHORT).show()
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -70,6 +89,31 @@ class SignUpActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this, "빈 칸이 있습니다. 모두 작성 바랍니다", Toast.LENGTH_SHORT).show()
             }
+
+            val email = itemEditId.text.toString()
+            val password = itemEditPW.text.toString()
+            val name = itemEditName.text.toString()
+
+
+
+            val call : Call<ResponseSignupData> = SoptServiceImpl.signup.postSignup(
+                RequestSignupData(email = email, password = password , userName = name)
+            )
+
+            call.enqueue(object : Callback<ResponseSignupData> {
+                override fun onFailure(call: Call<ResponseSignupData>, t: Throwable) {
+                    //통신 실패 로직
+                }
+
+                override fun onResponse(call: Call<ResponseSignupData>, response: Response<ResponseSignupData>) {
+                    response.takeIf { it.isSuccessful }
+                        ?.body()
+                        ?.let{
+                                it ->
+                            //do somting
+                        } ?: showError(response.errorBody())
+                }
+            })
         }
     }
 }

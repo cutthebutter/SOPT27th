@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.cutthebutter.sopthw1.Data.ProfileData
 import com.cutthebutter.sopthw1.ItemTouch.ItemTouchHelperListener
 import com.cutthebutter.sopthw1.R
 
