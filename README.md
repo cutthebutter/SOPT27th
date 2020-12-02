@@ -18,7 +18,7 @@
  <img width="200" src="https://user-images.githubusercontent.com/42573282/99974257-05eacf00-2de4-11eb-9281-e0b7a01ed3c2.gif">
  
  - 서버에 내가 등록 된 것 
- <img width="200" src="https://user-images.githubusercontent.com/42573282/100899470-3d086100-3505-11eb-9c0b-686db5f3ea5f.png">
+ <img width="200" src="https://user-images.githubusercontent.com/42573282/100900989-bfddeb80-3506-11eb-9979-7e948f270ced.gif">
  
 
  
