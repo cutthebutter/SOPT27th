@@ -5,11 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.cutthebutter.sopthw1.R
-import com.cutthebutter.sopthw1.TabPagerAdapter
-import com.cutthebutter.sopthw1.ViewPagerAdapter
+import com.cutthebutter.sopthw1.PagerAdapter.TabPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
 

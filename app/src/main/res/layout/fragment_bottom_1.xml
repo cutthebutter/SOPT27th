@@ -21,7 +21,7 @@
         android:background="#828282"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileBtn">
+        app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/mainProfilePic"
@@ -47,17 +47,24 @@
             app:layout_constraintTop_toBottomOf="@+id/mainProfilePic" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="50dp"
-            android:text="안녕하세요. 27기 안드로이"
+            android:layout_marginStart="30dp"
+            android:text="안녕하세요. 저는 이세민이구요.
+            27기 안드로이드 최고 귀요미가 되는 게
+            제 장래희망입니다."
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="@id/mainProfileSection"
-            app:layout_constraintEnd_toEndOf="@id/mainProfileSection"
-            app:layout_constraintStart_toStartOf="@id/mainProfileSection"
-            app:layout_constraintTop_toBottomOf="@+id/mainProfileName" />
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainProfileName"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

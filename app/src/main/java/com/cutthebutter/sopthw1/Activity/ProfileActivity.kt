@@ -1,4 +1,4 @@
-package com.cutthebutter.sopthw1
+package com.cutthebutter.sopthw1.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,9 +10,10 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cutthebutter.sopthw1.ItemTouch.ItemTouchHelperCallback
+import com.cutthebutter.sopthw1.R
 import com.cutthebutter.sopthw1.Recycler.DetailActivity
 import com.cutthebutter.sopthw1.Recycler.ProfileAdapter
-import com.cutthebutter.sopthw1.Recycler.ProfileData
+import com.cutthebutter.sopthw1.Data.ProfileData
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var ProfileAdapter: ProfileAdapter

@@ -1,4 +1,4 @@
-package com.cutthebutter.sopthw1
+package com.cutthebutter.sopthw1.PagerAdapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

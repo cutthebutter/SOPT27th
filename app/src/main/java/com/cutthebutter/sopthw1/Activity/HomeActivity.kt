@@ -1,6 +1,5 @@
-package com.cutthebutter.sopthw1
+package com.cutthebutter.sopthw1.Activity
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +8,8 @@ import androidx.viewpager.widget.ViewPager
 import com.cutthebutter.sopthw1.Fragment.bottom_Fragment1
 import com.cutthebutter.sopthw1.Fragment.bottom_Fragment2
 import com.cutthebutter.sopthw1.Fragment.bottom_Fragment3
+import com.cutthebutter.sopthw1.PagerAdapter.ViewPagerAdapter
+import com.cutthebutter.sopthw1.R
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -23,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         val logoutBtn = findViewById<Button>(R.id.logoutBtn)
-        val profileBtn =findViewById<Button>(R.id.profileBtn)
+//        val profileBtn =findViewById<Button>(R.id.profileBtn)
 
         val home_bottom_viewPager =findViewById<ViewPager>(R.id.home_bottom_viewPager)
         val home_bottom_navi= findViewById<BottomNavigationView>(R.id.home_bottom_navi)

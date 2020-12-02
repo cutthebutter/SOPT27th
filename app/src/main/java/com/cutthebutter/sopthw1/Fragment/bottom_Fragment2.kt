@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
-import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +15,7 @@ import com.cutthebutter.sopthw1.ItemTouch.ItemTouchHelperCallback
 import com.cutthebutter.sopthw1.R
 import com.cutthebutter.sopthw1.Recycler.DetailActivity
 import com.cutthebutter.sopthw1.Recycler.ProfileAdapter
-import com.cutthebutter.sopthw1.Recycler.ProfileData
+import com.cutthebutter.sopthw1.Data.ProfileData
 
 
 class bottom_Fragment2 : Fragment() {
