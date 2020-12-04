@@ -22,8 +22,11 @@
  
  - 회원 가입한 ID로 로그인
   <img width="200" src="https://user-images.githubusercontent.com/42573282/101188920-b46ef980-3699-11eb-8a16-c9f877dc9c83.png">
+  
+ -postman에서 가입 정보 확인
+ <img width="200" src="https://user-images.githubusercontent.com/42573282/101190448-b76ae980-369b-11eb-93d9-134d486dc98b.png">
  
- - postman에서 가입 정보 확인 
+ - postman에서 로그인 정보 확인 
   
   <img width="200" src="https://user-images.githubusercontent.com/42573282/101188917-b33dcc80-3699-11eb-8858-a5a48eafefb0.png">
  
