@@ -21,10 +21,10 @@
  <img width="200" src="https://user-images.githubusercontent.com/42573282/100900989-bfddeb80-3506-11eb-9979-7e948f270ced.gif">
  
  - 회원 가입한 ID로 로그인
- https://user-images.githubusercontent.com/42573282/101188917-b33dcc80-3699-11eb-8858-a5a48eafefb0.png
+  <img width="200" src="https://user-images.githubusercontent.com/42573282/101188917-b33dcc80-3699-11eb-8858-a5a48eafefb0.png">
  
  - postman에서 가입 정보 확인 
- https://user-images.githubusercontent.com/42573282/101188920-b46ef980-3699-11eb-8a16-c9f877dc9c83.png
+  <img width="200" src="https://user-images.githubusercontent.com/42573282/101188920-b46ef980-3699-11eb-8a16-c9f877dc9c83.png">
  
 
  
